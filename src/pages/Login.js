@@ -1,18 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
 import LoginSignUp from "../components/LoginSignUp";
-import { Box, Input, Path } from "../layouts/LoginSignUpStyles";
+import { Box, Input, Path, Error } from "../layouts/LoginSignUpStyles";
+import { signInUser } from "../services/server";
 
 export default function Login() {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
+	const history = useHistory();
+	
+	function signIn(e) {
+		e.preventDefault();
+		setLoading(true);
+
+		const body = {email, password};
+
+		const req = signInUser(body);
+		req.then(() => {
+			history.push("/plans");
+		});
+		req.catch(() => {
+			setError("Email e/ou senha inválidos");
+			setLoading(false);
+		});
+	}
+
 	return (
 		<LoginSignUp>
 			<Box>
-				<form>
-					<Input type="email" placeholder="E-mail" />
-					<Input type="password" placeholder="Senha" />
-					<Button type="submit" >
+				<form onSubmit={signIn}>
+					<Input 
+						type="email" 
+						placeholder="E-mail"
+						value={email} 
+						onChange={e => setEmail(e.target.value)}
+						onInvalid={e => e.target.setCustomValidity("Você deve inserir um email válido aqui")} 
+						onInput={e => e.target.setCustomValidity("")}
+						required 
+					/>
+					<Input 
+						type="password" 
+						placeholder="Senha"
+						value={password} 
+						onChange={e => setPassword(e.target.value)}
+						onInvalid={e => e.target.setCustomValidity("Insira uma senha com no mínimo 6 caracteres")} 
+						onInput={e => e.target.setCustomValidity("")}
+						required
+					/>
+					{error && 
+						<Error>
+							{error}
+						</Error>
+					}
+					<Button type="submit" disabled={loading}>
                         Login
 					</Button>
 					<Link to="/sign-up">

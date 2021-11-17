@@ -23,7 +23,7 @@ export default function SignUp() {
 		const req = registration(body);
 		req.then(() => {
 			alert("Cadastro realizado com sucesso!");
-			history.push("/plans");
+			history.push("/login");
 		});
 		req.catch(() => {
 			setError("Dados inválidos. Tente novamente.");
