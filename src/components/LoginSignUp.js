@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-export default function LoginSignUpStyle({ children }) {
+export default function LoginSignUp({ children }) {
 	return (
 		<Container>
 			<Title>
@@ -32,6 +32,7 @@ const Title = styled.div`
   h1{
     font-size: 28px;
     font-weight: 500;
+    line-height: 33px;
   }
 `;
 

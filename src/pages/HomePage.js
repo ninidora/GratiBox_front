@@ -14,7 +14,7 @@ export default function HomePage() {
 				<Link to="/sign-up">
 					<button>Quero começar</button>
 				</Link>
-				<Link to="/sign-in">
+				<Link to="/login">
 					<p>Já sou grato</p>
 				</Link>
 			</Action>
