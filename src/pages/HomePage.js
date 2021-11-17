@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import cover from "../assets/img/image05.webp";
 
-export default function HomePage(){
+export default function HomePage() {
 	return (
 		<Body>
 			<Title>Bem vindo ao GratiBox</Title>
