@@ -3,13 +3,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 
 export default function App(){
-    return(
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" exact>
-                    <HomePage />
-                </Route>
-            </Switch>
-        </BrowserRouter>
-    );
+	return(
+		<BrowserRouter>
+			<Switch>
+				<Route path="/" exact>
+					<HomePage />
+				</Route>
+			</Switch>
+		</BrowserRouter>
+	);
 }
