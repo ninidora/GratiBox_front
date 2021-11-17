@@ -33,6 +33,9 @@ const GlobalStyle = createGlobalStyle`
 	}
 	body {
 		line-height: 1;
+		background-color: #6d7ce4;
+		font-family: 'Roboto', sans-serif;
+		color: #FFF;
 	}
 	ol, ul {
 		list-style: none;
@@ -55,6 +58,12 @@ const GlobalStyle = createGlobalStyle`
 	a {
 		color: inherit;
 		text-decoration: none;
+	}
+	button{
+		color: #FFF;
+		font-family: 'Roboto', sans-serif;
+		border: none;
+    	border-radius: 10px;
 	}
 	* {
 		box-sizing: border-box;
