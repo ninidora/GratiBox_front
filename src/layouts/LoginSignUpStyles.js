@@ -13,7 +13,6 @@ export const Input = styled.input`
   ::placeholder{
     font-size: 20px;
     color: #60484866;
-;
   }
 `;
 
@@ -45,4 +44,15 @@ export const Path = styled.p`
     font-weight: 700;
     text-align: center;
     margin-top: 21px;
+`;
+
+export const Error = styled.div`
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
 `;
