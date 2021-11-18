@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Roboto', sans-serif;
 		border: none;
     	border-radius: 10px;
+		background-color: #8C97EA;
 	}
 	* {
 		box-sizing: border-box;

@@ -17,7 +17,6 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background: #8C97EA;
   color: #FFF;
   opacity: ${props => props.disabled ? "0.7" : "1"};
   cursor: ${props => props.disabled ? "inherit": "pointer"};
