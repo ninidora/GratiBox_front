@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-export default function MainComponent({ children, text }) {
+export default function MainComponent({ children, text, page }) {
 	return (
-		<Container>
+		<Container margin={page}>
 			<Title>
 				<h1>Bom te ver por aqui, @User.</h1>
 				<h2>{ text }</h2>
@@ -17,9 +17,8 @@ export default function MainComponent({ children, text }) {
 }
 
 const Container = styled.div`
-  margin: 30vw auto 10vw auto;
+  margin: ${props => props.margin === "plans" ? "30vw auto 10vw auto" : "20vw auto 10vw auto"};
   display: flex;
-  align-items: center;
   flex-direction: column;
 `;
 

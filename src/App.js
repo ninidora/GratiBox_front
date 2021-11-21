@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Plans from "./pages/Plans";
+import Sign from "./pages/Sign";
 
 export default function App() {
 	return (
@@ -24,6 +25,9 @@ export default function App() {
 					</Route>
 					<Route path="/plans" exact>
 						<Plans />
+					</Route>
+					<Route path="/sign" exact>
+						<Sign />
 					</Route>
 				</Switch>
 			</BrowserRouter>

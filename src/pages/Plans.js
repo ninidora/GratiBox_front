@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import MainComponent from "../components/MainComponent";
 import image1 from "../assets/img/image04.jpg";
 import image2 from "../assets/img/image02.jpg";
-import { useHistory } from "react-router";
 
 export default function Plans() {
-	const history = useHistory();
 	const data = [
 		{
 			image: image1,
@@ -22,14 +21,16 @@ export default function Plans() {
 	];
 
 	return (
-		<MainComponent text={"Você ainda não assinou um plano, que tal começar agora?"}>
+		<MainComponent text={"Você ainda não assinou um plano, que tal começar agora?"} page={"plans"}>
 			{data.map((d,i) => (
 				<Box key={i}>
 					<img src={d.image} alt={d.alt} />
 					<Infos>
 						<p>{d.text}</p>
 						<div>
-							<button onClick={() => history.push("/subscription")}>Assinar</button>
+							<Link to={{pathname: "/sign", state: {option: d.alt}}}>
+								<button>Assinar</button>
+							</Link>
 						</div>
 					</Infos>
 				</Box>
