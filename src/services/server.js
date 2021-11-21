@@ -10,4 +10,8 @@ function signInUser(body){
 	return axios.post(`${BASE_URL}/login`, body);
 }
 
-export { registration, signInUser };
+function getAdressData(cep){
+	return axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`);
+}
+
+export { registration, signInUser, getAdressData };

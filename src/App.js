@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Plans from "./pages/Plans";
 import Sign from "./pages/Sign";
+import Sign2 from "./pages/Sign2";
 
 export default function App() {
 	return (
@@ -28,6 +29,9 @@ export default function App() {
 					</Route>
 					<Route path="/sign" exact>
 						<Sign />
+					</Route>
+					<Route path="/sign/2" exact>
+						<Sign2 />
 					</Route>
 				</Switch>
 			</BrowserRouter>
