@@ -2,14 +2,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 import MainComponent from "../components/MainComponent";
 import image from "../assets/img/image03.jpg";
 
 export default function Sign() {
 	const [selected, setSelected] = useState(true);
+	const [answers, setAnswers] = useState([]);
+	console.log(answers);
 	const location = useLocation();
+	const history = useHistory();
 	const { option } = location.state;
 	const data = [
 		{
@@ -29,12 +32,12 @@ export default function Sign() {
 		}
 	];
 
-	const [answers, setAnswers] = useState({});
-    
-	function handleSubmit() {
-        
-		console.log(answers);
-	} 
+	function nextPage() {
+		history.push({
+			pathname: "/sign/2", 
+			state: {option: answers}
+		});
+	}
 
 	return (
 		<MainComponent text={"“Agradecer é arte de atrair coisas boas”"} page={"sign"}>
@@ -80,7 +83,7 @@ export default function Sign() {
 					})}
 				</Options>
 				<Button>
-					<button onClick={handleSubmit}>Próximo</button>
+					<button onClick={nextPage}>Próximo</button>
 				</Button>
 			</Box>
 		</MainComponent>
