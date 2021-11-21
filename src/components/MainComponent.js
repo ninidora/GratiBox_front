@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+
+import UserContext from "../contexts/UserContext";
 
 // eslint-disable-next-line react/prop-types
 export default function MainComponent({ children, text, page }) {
+	const { userData } = useContext(UserContext);
+	const name = userData?.name?.split(" ")[0];
+
 	return (
 		<Container margin={page}>
 			<Title>
-				<h1>Bom te ver por aqui, @User.</h1>
+				<h1>Bom te ver por aqui, @{name}.</h1>
 				<h2>{ text }</h2>
 			</Title>
 			<Box>

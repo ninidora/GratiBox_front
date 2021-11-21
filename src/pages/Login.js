@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import styled from "styled-components";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import LoginSignUp from "../components/LoginSignUp";
 import { Box, Input, Path, Error } from "../layouts/LoginSignUpStyles";
 import { signInUser } from "../services/server";
+import UserContext from "../contexts/UserContext";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
@@ -13,7 +14,8 @@ export default function Login() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 	const history = useHistory();
-	
+	const { setUserData } = useContext(UserContext);
+
 	function signIn(e) {
 		e.preventDefault();
 		setLoading(true);
@@ -21,7 +23,12 @@ export default function Login() {
 		const body = {email, password};
 
 		const req = signInUser(body);
-		req.then(() => {
+		req.then(res => {
+			setUserData({
+				token: res.data.token,
+				name: res.data.name
+			});
+			localStorage.setItem("user", JSON.stringify(res.data));
 			history.push("/plans");
 		});
 		req.catch(() => {
