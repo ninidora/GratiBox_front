@@ -9,17 +9,29 @@ import { getAdressData } from "../services/server";
 
 export default function Sign2() {
 	const location = useLocation();
+	// eslint-disable-next-line no-unused-vars
 	const { option } = location.state;
 	const [name, setName] = useState("");
 	const [cep, setCep] = useState("");
 	const [adress, setAdress] = useState("");
 	const street = adress.street + ", " + adress.neighborhood;
-	console.log(option);
-	console.log(adress);
+	// const body = [
+	// 	{
+	// 		name,
+	// 		zipCode: cep,
+	// 		street: adress.street,
+	// 		neighborhood: adress.neighborhood,
+	// 		option
+	// 	}
+	// ];	
 
 	function searchCep() {
 		const req = getAdressData(cep);
 		req.then(res => setAdress(res.data));
+	}
+
+	function confirmSign() {
+
 	}
 
 	return (
@@ -63,7 +75,7 @@ export default function Sign2() {
 					</form>
 				</Options>
 				<Button>
-					<button>Finalizar</button>
+					<button onClick={confirmSign}>Finalizar</button>
 				</Button>
 			</Box>
 		</MainComponent>
