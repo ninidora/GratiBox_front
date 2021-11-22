@@ -6,7 +6,7 @@ import styled from "styled-components";
 import cover from "../assets/img/image05.webp";
 import UserContext from "../contexts/UserContext";
 
-export default function HomePage() {
+export default function Welcome() {
 	const history = useHistory();
 	const { setUserData } = useContext(UserContext);
 	const user = localStorage.getItem("user");

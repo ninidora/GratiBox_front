@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import MainComponent from "../components/MainComponent";
 import image from "../assets/img/image03.jpg";
-import { Box, Options, Button, Input } from "../components/SignComponent";
+import { Box, Options, Button, Input } from "../layouts/MainStyles";
 import { getAdressData } from "../services/server";
 
 export default function Sign2() {

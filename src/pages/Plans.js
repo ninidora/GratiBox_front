@@ -12,7 +12,7 @@ export default function Plans() {
 	const user = localStorage.getItem("user");
 
 	useEffect(() => {
-		!user && history.push("/");
+		!user && history.push("/welcome");
 	},[]);
 
 	const data = [

@@ -46,7 +46,6 @@ const Title = styled.div`
 `;
 
 const Box = styled.div`
-  width: 400px;
   max-width: 100%;
   display: flex;
   flex-direction: column;

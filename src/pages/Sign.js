@@ -5,7 +5,7 @@ import { useHistory, useLocation } from "react-router";
 
 import MainComponent from "../components/MainComponent";
 import image from "../assets/img/image03.jpg";
-import { Box, Options, Label, HiddenContent, Button } from "../components/SignComponent";
+import { Box, Options, Label, HiddenContent, Button } from "../layouts/MainStyles";
 
 export default function Sign() {
 	const [selected, setSelected] = useState(true);
@@ -45,11 +45,11 @@ export default function Sign() {
 							<div key={question.id}>
 								<Label height={selected} onClick={() => setSelected(!selected)}>
 									{question.text}
-									{!selected &&
+									{selected &&
 										    <AiOutlineArrowDown />
 									}
 								</Label>
-								{selected &&
+								{!selected &&
                                     <HiddenContent>
                                     	{question.options.map((option) => {
                                     		return (

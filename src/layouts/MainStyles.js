@@ -22,7 +22,7 @@ export const Label = styled.div`
     height: 44px;
     display: flex;
     justify-content: space-between;
-    border-radius: ${props => props.height ? "5px 5px 0 0" : "5px"};
+    border-radius: ${props => !props.height ? "5px 5px 0 0" : "5px"};
     background: rgba(224, 209, 237);
     padding: 12px;
     color: #4D65A8;
