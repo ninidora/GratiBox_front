@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
 import LoginSignUp from "../components/LoginSignUp";
+import UserContext from "../contexts/UserContext";
 import { Box, Input, Button, Error } from "../layouts/LoginSignUpStyles";
 import { registration } from "../services/server";
 
@@ -13,6 +14,12 @@ export default function SignUp() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 	const history = useHistory();
+	const { setUserData } = useContext(UserContext);
+	const user = localStorage.getItem("user");
+
+	useEffect(() => {
+		user ? history.push("/plans") : setUserData(null);
+	},[]);
 
 	function signUp(e) {
 		e.preventDefault();

@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
 import cover from "../assets/img/image05.webp";
+import UserContext from "../contexts/UserContext";
 
 export default function HomePage() {
+	const history = useHistory();
+	const { setUserData } = useContext(UserContext);
+	const user = localStorage.getItem("user");
+
+	useEffect(() => {
+		user ? history.push("/plans") : setUserData(null);
+	},[]);
+
 	return (
 		<Body>
 			<Title>Bem vindo ao GratiBox</Title>

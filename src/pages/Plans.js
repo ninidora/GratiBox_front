@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
 import MainComponent from "../components/MainComponent";
@@ -7,6 +8,13 @@ import image1 from "../assets/img/image04.jpg";
 import image2 from "../assets/img/image02.jpg";
 
 export default function Plans() {
+	const history = useHistory();
+	const user = localStorage.getItem("user");
+
+	useEffect(() => {
+		!user && history.push("/");
+	},[]);
+
 	const data = [
 		{
 			image: image1,

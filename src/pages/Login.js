@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import styled from "styled-components";
@@ -15,6 +15,11 @@ export default function Login() {
 	const [error, setError] = useState("");
 	const history = useHistory();
 	const { setUserData } = useContext(UserContext);
+	const user = localStorage.getItem("user");
+
+	useEffect(() => {
+		user ? history.push("/plans") : setUserData(null);
+	},[]);
 
 	function signIn(e) {
 		e.preventDefault();
