@@ -22,6 +22,9 @@ export default function MySign() {
 						<h2>Incensos</h2>
 					</Products>
 				</Options>
+				<Button>
+					<button>Avaliar entregas</button>
+				</Button>
 			</Box>
 		</MainComponent>
 	);
@@ -53,5 +56,21 @@ const Options = styled.div`
         font-weight: 700;
         font-size: 18px;
         line-height: 21px;
+    }
+`;
+
+const Button = styled.div`
+    display: flex;
+    justify-content: center;
+
+    button{
+        width: 237px;
+        height: 56px;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        margin-top: 21px;
     }
 `;
